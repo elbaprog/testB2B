@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Blog Category All</h4>
+                        <h4 class="mb-sm-0">Category All</h4>
 
 
 
@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Blog Category All Data </h4>
+                            <h4 class="card-title">Category All Data </h4>
 
 
                             <table id="datatable" class="table table-bordered dt-responsive nowrap"
@@ -29,28 +29,25 @@
                                 <thead>
                                     <tr>
                                         <th>Sl</th>
-                                        <th>Blog Category Name</th>
+                                        <th>Category Name</th>
                                         <th>Action</th>
 
                                 </thead>
 
 
                                 <tbody>
-
-                                    @foreach ($blogcategory as $key => $item)
+                                    @foreach ($categorys as $key => $item)
                                         <tr>
                                             <td> {{ $key + 1 }} </td>
-                                            <td> {{ $item->blog_category }} </td>
-
+                                            <td> {{ $item->category }} </td>
                                             <td>
-                                                <a href="{{ route('edit.blog.category', $item->id) }}"
-                                                    class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i>
+                                                <a href="{{ route('edit.category', $item->id) }}" class="btn btn-info sm"
+                                                    title="Edit Data"> <i class="fas fa-edit"></i>
                                                 </a>
-
-                                                <a href="{{ route('delete.blog.category', $item->id) }}"
+                                                <a href="{{ route('delete.category', $item->id) }}"
                                                     class="btn btn-danger sm" title="Delete Data" id="delete"> <i
-                                                        class="fas fa-trash-alt"></i> </a>
-
+                                                        class="fas fa-trash-alt"></i>
+                                                </a>
                                             </td>
 
                                         </tr>

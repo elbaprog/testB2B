@@ -9,23 +9,23 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Edit Blog Category Page </h4> <br><br>
-                            <form method="post" action="{{ route('update.blog.category', $blogcategory->id) }}">
+                            <h4 class="card-title">Edit Category </h4> <br><br>
+                            <form method="post" action="{{ route('update.category', $categorys->id) }}">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Blog Category
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Category
                                         Name</label>
                                     <div class="col-sm-10">
-                                        <input name="blog_category" class="form-control" type="text"
-                                            value="{{ $blogcategory->blog_category }}" id="example-text-input">
-                                        @error('blog_category')
+                                        <input name="category" class="form-control" type="text"
+                                            value="{{ $categorys->category }}" id="example-text-input">
+                                        @error('category')
                                             <span class="text-danger"> {{ $message }} </span>
                                         @enderror
                                     </div>
                                 </div>
                                 <!-- end row -->
                                 <input type="submit" class="btn btn-info waves-effect waves-light"
-                                    value="Update Blog Category">
+                                    value="Update Category">
                             </form>
                         </div>
                     </div>
