@@ -185,28 +185,27 @@ class ModuleController extends Controller
         }
         public function store(Request $request)
     {
-        dd($request->all());
-    //     $image = $request->file('image');
-    //     $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
+        $image = $request->file('image');
+        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
 
-    //     Image::make($image)->resize(430, 327)->save('upload/module/' . $name_gen);
-    //     $save_url = 'upload/module/' . $name_gen;
+        Image::make($image)->resize(430, 327)->save('upload/module/' . $name_gen);
+        $save_url = 'upload/module/' . $name_gen;
 
-    //     Module::insert([
-    //         'category_id' => $request->category_id,
-    //         'title' => $request->title,
-    //         'description' => $request->description,
-    //         'image' => $save_url,
-    //         'created_at' => Carbon::now(),
+        Module::insert([
+            'category_id' => $request->category_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $save_url,
+            'created_at' => Carbon::now(),
 
-    //     ]);
-    //     $notification = array(
-    //         'message' => 'Module Inserted Successfully',
-    //         'alert-type' => 'success'
-    //     );
+        ]);
+        $notification = array(
+            'message' => 'Module Inserted Successfully',
+            'alert-type' => 'success'
+        );
 
-    //     return redirect()->route('all.module')->with($notification);
-    // }
+        return redirect()->route('all.module')->with($notification);
+    }
     
     }
-}
+

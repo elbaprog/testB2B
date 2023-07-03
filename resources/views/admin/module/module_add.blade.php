@@ -113,6 +113,8 @@
         });
     </script>
     <!-- <script src="{{ asset('ckeditor5/ckeditor.js') }}"></script> -->
+    <!-- <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+
     <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
     <script>
         ClassicEditor
@@ -129,6 +131,18 @@
 
             } );
 
-    </script>
+    </script> -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor.create(document.querySelector('#editor'), {
+        ckfinder: {
+            uploadUrl: "{{ route('ckeditor.upload',['_token' => csrf_token()]) }}"
+        }
+    })
+    .catch(error => {
+        console.error(error);
+    });
+</script>
+
 
 @endsection

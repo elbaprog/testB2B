@@ -44,7 +44,6 @@
                         <tr>
                             <td> {{ $i++}} </td>
                             <td> {{ $item['category']['category'] }} </td>
-                            <td> {{ $item['description']['description'] }} </td>
                             <td> {{ $item->title }} </td>
                             <td> <img src="{{ asset($item->image) }}" style="width: 60px; height: 50px;"> </td>
                             
