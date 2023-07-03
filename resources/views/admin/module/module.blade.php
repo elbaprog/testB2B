@@ -44,6 +44,7 @@
                         <tr>
                             <td> {{ $i++}} </td>
                             <td> {{ $item['category']['category'] }} </td>
+                            <td> {{ $item['description']['description'] }} </td>
                             <td> {{ $item->title }} </td>
                             <td> <img src="{{ asset($item->image) }}" style="width: 60px; height: 50px;"> </td>
                             
@@ -69,6 +70,24 @@
                         
                     </div> <!-- container-fluid -->
                 </div>
+
+                <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+
+            .create( document.querySelector( '#editor' ),{
+                ckfinder: {
+                    uploadUrl: "{{route('ckeditor.upload',['_token' => csrf_token()]) }}",
+        }
+
+            })
+            .catch( error => {
+
+                console.error( error );
+
+            } );
+
+    </script>
  
 
 @endsection
