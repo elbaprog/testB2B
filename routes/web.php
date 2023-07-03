@@ -12,19 +12,20 @@ use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\Home\ContactController;
 use App\Http\Controllers\Home\CategoryController;
 use App\Http\Controllers\Home\ModuleController;
+use App\Http\Controllers\FrontController;
 
 // Route::get('/', function () {
 //     return view('frontend.index');
 // }); 
 
 
-Route::controller(DemoController::class)->group(function () {
-    Route::get('/', 'HomeMain')->name('home');
+// Route::controller(DemoController::class)->group(function () {
+//     Route::get('/', 'HomeMain')->name('home');
 
 
-    Route::get('/about', 'Index')->name('about.page')->middleware('check');
-    Route::get('/contact', 'ContactMethod')->name('cotact.page');
-});
+//     Route::get('/about', 'Index')->name('about.page')->middleware('check');
+//     Route::get('/contact', 'ContactMethod')->name('cotact.page');
+// });
 
 
 // Admin All Route 
@@ -168,3 +169,10 @@ require __DIR__ . '/auth.php';
 // Route::get('/contact', function () {
 //     return view('contact');
 // });
+
+
+// Frontend All Routes 
+Route::controller(FrontController::class)->group(function () {
+    Route::get('/', 'index');
+
+});
