@@ -152,6 +152,9 @@ Route::controller(ModuleController::class)->group(function () {
     Route::get('/delete/module/{id}', 'destroy')->name('delete.module');
 });
 
+Route::post('/create', [ModuleController::class, 'create'])->name('create');
+Route::post('/upload', [ModuleController::class, 'upload'])->name('ckeditor.upload');
+Route::post('/module', [ModuleController::class, 'store'])->name('store');
 
 Route::get('/dashboard', function () {
     return view('admin.index');

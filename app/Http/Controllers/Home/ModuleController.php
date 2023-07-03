@@ -39,29 +39,7 @@ class ModuleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $image = $request->file('image');
-        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
-
-        Image::make($image)->resize(430, 327)->save('upload/module/' . $name_gen);
-        $save_url = 'upload/module/' . $name_gen;
-
-        Module::insert([
-            'category_id' => $request->category_id,
-            'title' => $request->title,
-            'description' => $request->description,
-            'image' => $save_url,
-            'created_at' => Carbon::now(),
-
-        ]);
-        $notification = array(
-            'message' => 'Module Inserted Successfully',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->route('all.module')->with($notification);
-    }
+    
 
     /**
      * Display the specified resource.
@@ -190,5 +168,45 @@ class ModuleController extends Controller
 
      } // End Method 
 
-    }
+     public function upload(Request $request)
+        {
+           if($request->hasFile('upload')) {
+            
+                $originName = $request->file('upload')->getClientOriginalName();
+                $fileName = pathinfo($originName, PATHINFO_FILENAME);
+                $extension = $request->file('upload')->getClientOriginalExtension();
+                $fileName = $fileName . '_' . time() . '.' . $extension;
 
+                $request->file('upload')->move(public_path('media'), $fileName);
+
+                $url = asset('media/' . $fileName);
+                return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => $url]);
+            }
+        }
+        public function store(Request $request)
+    {
+        dd($request->all());
+    //     $image = $request->file('image');
+    //     $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
+
+    //     Image::make($image)->resize(430, 327)->save('upload/module/' . $name_gen);
+    //     $save_url = 'upload/module/' . $name_gen;
+
+    //     Module::insert([
+    //         'category_id' => $request->category_id,
+    //         'title' => $request->title,
+    //         'description' => $request->description,
+    //         'image' => $save_url,
+    //         'created_at' => Carbon::now(),
+
+    //     ]);
+    //     $notification = array(
+    //         'message' => 'Module Inserted Successfully',
+    //         'alert-type' => 'success'
+    //     );
+
+    //     return redirect()->route('all.module')->with($notification);
+    // }
+    
+    }
+}

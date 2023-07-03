@@ -20,7 +20,7 @@
 
                             <h4 class="card-title">Add Module Page </h4>
 
-                            <form method="post" action="{{ route('store.module') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('store.module') }}" enctype="multipart/form-data">
                                 @csrf
 
 
@@ -59,9 +59,8 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Module Description
                                     </label>
                                     <div class="col-sm-10">
-                                        <textarea id="elm1" name="description">
-   
-      </textarea>
+                                        <textarea id="editor" class="block w-full mt-1 rounded-md" name="description">
+                                        </textarea>
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -86,7 +85,7 @@
 
 
                                 <input type="submit" class="btn btn-info waves-effect waves-light"
-                                    value="Insert Blog Data">
+                                    value="Insert Module">
                             </form>
 
 
@@ -113,4 +112,23 @@
             });
         });
     </script>
+    <!-- <script src="{{ asset('ckeditor5/ckeditor.js') }}"></script> -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+
+            .create( document.querySelector( '#editor' ),{
+                ckfinder: {
+                    uploadUrl: "{{route('ckeditor.upload',['_token' => csrf_token()]) }}",
+        }
+
+            })
+            .catch( error => {
+
+                console.error( error );
+
+            } );
+
+    </script>
+
 @endsection
