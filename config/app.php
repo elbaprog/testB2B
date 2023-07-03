@@ -192,6 +192,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Image' => Intervention\Image\Facades\Image::class,
+        'CKEditor' => 'Ckeditor\\CkeditorServiceProvider',
     ])->toArray(),
 
 ];
