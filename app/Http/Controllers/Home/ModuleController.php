@@ -22,6 +22,18 @@ class ModuleController extends Controller
         return view('admin.module.module', compact('modules'));
     }
 
+    public function appmed()
+    {
+        $appmedlab = Module::where('category_id' , 1)->latest()->get();
+        return view('admin.module.appmedlab_module', compact('appmedlab'));
+    }
+
+    public function pantheon()
+    {
+        $pantheon = Module::where('category_id' , 2)->latest()->get();
+        return view('admin.module.pantheon_module', compact('pantheon'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -39,7 +51,7 @@ class ModuleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
 
     /**
      * Display the specified resource.
@@ -129,61 +141,60 @@ class ModuleController extends Controller
 
         Module::findOrFail($id)->delete();
 
-         $notification = array(
-            'message' => 'Module Deleted Successfully', 
+        $notification = array(
+            'message' => 'Module Deleted Successfully',
             'alert-type' => 'success'
         );
 
-        return redirect()->back()->with($notification);       
-
-     } // End Method 
-
+        return redirect()->back()->with($notification);
+    } // End Method 
 
 
-     public function BlogDetails($id){
+
+    public function BlogDetails($id)
+    {
 
         $allblogs = Module::latest()->limit(5)->get();
         $blogs = Module::findOrFail($id);
-        $categories = Category::orderBy('category','ASC')->get();
-        return view('frontend.blog_details',compact('blogs','allblogs','categories'));
+        $categories = Category::orderBy('category', 'ASC')->get();
+        return view('frontend.blog_details', compact('blogs', 'allblogs', 'categories'));
+    } // End Method 
 
-     } // End Method 
 
+    public function CategoryBlog($id)
+    {
 
-     public function CategoryBlog($id){
-
-        $blogpost = Module::where('category_id',$id)->orderBy('id','DESC')->get();
+        $blogpost = Module::where('category_id', $id)->orderBy('id', 'DESC')->get();
         $allblogs = Module::latest()->limit(5)->get();
-        $categories = Category::orderBy('category','ASC')->get();
+        $categories = Category::orderBy('category', 'ASC')->get();
         $categoryname = Category::findOrFail($id);
-        return view('frontend.cat_blog_details',compact('blogpost','allblogs','categories','categoryname'));
+        return view('frontend.cat_blog_details', compact('blogpost', 'allblogs', 'categories', 'categoryname'));
+    } // End Method 
 
-     } // End Method 
+    public function HomeBlog()
+    {
 
-     public function HomeBlog(){
-
-        $categories = Category::orderBy('category','ASC')->get();
+        $categories = Category::orderBy('category', 'ASC')->get();
         $allblogs = Module::latest()->paginate(3);
-        return view('frontend.blog',compact('allblogs','categories'));
+        return view('frontend.blog', compact('allblogs', 'categories'));
+    } // End Method 
 
-     } // End Method 
+    public function upload(Request $request)
+    {
+        if ($request->hasFile('upload')) {
 
-     public function upload(Request $request)
-        {
-           if($request->hasFile('upload')) {
-            
-                $originName = $request->file('upload')->getClientOriginalName();
-                $fileName = pathinfo($originName, PATHINFO_FILENAME);
-                $extension = $request->file('upload')->getClientOriginalExtension();
-                $fileName = $fileName . '_' . time() . '.' . $extension;
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
 
-                $request->file('upload')->move(public_path('media'), $fileName);
+            $request->file('upload')->move(public_path('media'), $fileName);
 
-                $url = asset('media/' . $fileName);
-                return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => $url]);
-            }
+            $url = asset('media/' . $fileName);
+            return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => $url]);
         }
-        public function store(Request $request)
+    }
+    public function store(Request $request)
     {
         $image = $request->file('image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();  // 3434343443.jpg
@@ -206,6 +217,4 @@ class ModuleController extends Controller
 
         return redirect()->route('all.module')->with($notification);
     }
-    
-    }
-
+}

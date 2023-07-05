@@ -29,7 +29,7 @@
 
                                 <tbody>
                                     @php($i = 1)
-                                    @foreach ($modules as $key => $item)
+                                    @foreach ($pantheon as $key => $item)
                                         <tr>
                                             <td> {{ $i++ }} </td>
                                             <td> {{ $item['category']['category'] }} </td>
