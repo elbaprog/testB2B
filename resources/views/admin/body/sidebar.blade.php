@@ -38,8 +38,8 @@
                      </a>
                      <ul class="sub-menu" aria-expanded="false">
                          <!-- <li><a href="{{ route('all.module') }}">All Modules</a></li> -->
-                         <li><a href="{{ route('all.module') }}"><img src="{{ asset('backend/assets/images/appmed.png') }}" width="15px;" style="margin-top:-3px;"> AppMed</a></li>
-                         <li><a href="{{ route('all.module') }}"><img src="{{ asset('backend/assets/images/pantheon.png') }}" width="15px;" style="margin-top:-3px;"> Panthon</a></li>
+                         <li><a href="{{ route('appmed.module') }}"><img src="{{ asset('backend/assets/images/appmed.png') }}" width="15px;" style="margin-top:-3px;"> AppMed</a></li>
+                         <li><a href="{{ route('pantheon.module') }}"><img src="{{ asset('backend/assets/images/pantheon.png') }}" width="15px;" style="margin-top:-3px;"> Panthon</a></li>
                          <li><a href="{{ route('add.module') }}"><img src="{{ asset('backend/assets/images/plus.png') }}" width="10px;" style="margin-top:-3px;"> Add Modules</a></li>
 
                      </ul>

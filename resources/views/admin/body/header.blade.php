@@ -42,12 +42,6 @@
 
           <div class="d-flex">
 
-            <div style="padding:23px 5px 0 0;">
-          
-          <img src="{{ asset('backend/assets/images/darkmood.png') }}"  width="20px;" height="20px;"> 
-
-              </div>
-
               <div class="dropdown d-none d-lg-inline-block ms-1">
                   <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
                       <i class="ri-fullscreen-line"></i>
