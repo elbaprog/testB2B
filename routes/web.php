@@ -173,6 +173,8 @@ require __DIR__ . '/auth.php';
 
 // Frontend All Routes 
 Route::controller(FrontController::class)->group(function () {
-    Route::get('/', 'index');
+    Route::get('/', 'index');    
+    Route::get('/category/{id}', 'showModules')->name('category');
+    Route::get('/modules/{id}', 'detailsModule')->name('details_modules');
 
 });

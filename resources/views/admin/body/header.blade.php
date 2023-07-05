@@ -1,28 +1,28 @@
-  <header id="page-topbar">
+  <header id="page-topbar" style="background-color:#28357b;">
       <div class="navbar-header">
           <div class="d-flex">
               <!-- LOGO -->
-              <div class="navbar-brand-box">
+              <div class="navbar-brand-box" >
                   <a href="{{ url('/dashboard') }}" class="logo logo-dark">
-                      <span class="logo-sm">
-                          <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo-sm" height="22">
+                      <span class="logo-sm" style="margin-left: -20px;">
+                          <img src="{{ asset('backend/assets/images/prog.png') }}" alt="logo-sm" width="150px;">
                       </span>
                       <span class="logo-lg">
-                          <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="logo-dark" height="20">
+                          <img src="{{ asset('backend/assets/images/proglogo.png') }}" alt="logo-dark" width="150px;">
                       </span>
                   </a>
 
                   <a href="{{ url('/dashboard') }}" class="logo logo-light">
-                      <span class="logo-sm">
-                          <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo-sm-light"
-                              height="22">
+                      <span class="logo-sm" style="margin-left: -20px;">
+                          <img src="{{ asset('backend/assets/images/prog.png') }}" alt="logo-sm-light"
+                          width="150px;">
                       </span>
                       <span class="logo-lg">
-                          <img src="{{ asset('backend/assets/images/logo-light.png') }}" alt="logo-light"
-                              height="20">
+                          <img src="{{ asset('backend/assets/images/proglogo.png') }}" alt="logo-light"
+                          width="150px;">
                       </span>
                   </a>
-              </div>
+              </div> -
 
               <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect"
                   id="vertical-menu-btn">
@@ -42,7 +42,11 @@
 
           <div class="d-flex">
 
+            <div style="padding:23px 5px 0 0;">
+          
+          <img src="{{ asset('backend/assets/images/darkmood.png') }}"  width="20px;" height="20px;"> 
 
+              </div>
 
               <div class="dropdown d-none d-lg-inline-block ms-1">
                   <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
@@ -66,19 +70,18 @@
                   </button>
                   <div class="dropdown-menu dropdown-menu-end">
                       <!-- item-->
-                      <a class="dropdown-item" href="{{ route('admin.profile') }}"><i
-                              class="ri-user-line align-middle me-1"></i> Profile</a>
-                      <a class="dropdown-item" href="{{ route('change.password') }}"><i
-                              class="ri-wallet-2-line align-middle me-1"></i> Change Password</a>
-                      <a class="dropdown-item d-block" href="#"><span
-                              class="badge bg-success float-end mt-1">11</span><i
-                              class="ri-settings-2-line align-middle me-1"></i> Settings</a>
-                      <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock
+                      <a class="dropdown-item" href="{{ route('admin.profile') }}">
+                      <img src="{{ asset('backend/assets/images/profile.png') }}" alt="logo-sm-light">  Profile</a>
+                      <a class="dropdown-item" href="{{ route('change.password') }}">
+                      <img src="{{ asset('backend/assets/images/changepass.png') }}" alt="logo-sm-light"> Change Password</a>
+                      <a class="dropdown-item d-block" href="#">
+                              <img src="{{ asset('backend/assets/images/settings.png') }}" alt="logo-sm-light">  Settings</a>
+                      <a class="dropdown-item" href="#"><img src="{{ asset('backend/assets/images/lockscreen.png') }}" alt="logo-sm-light">  Lock
                           screen</a>
                       <div class="dropdown-divider"></div>
 
-                      <a class="dropdown-item text-danger" href="{{ route('admin.logout') }}"><i
-                              class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                      <a class="dropdown-item text-danger" href="{{ route('admin.logout') }}">
+                      <img src="{{ asset('backend/assets/images/logout.png') }}" alt="logo-sm-light">  Logout</a>
                   </div>
               </div>
 

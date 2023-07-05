@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Module;
 
 class FrontController extends Controller
 {
@@ -82,5 +83,17 @@ class FrontController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showModules($id)
+    {
+        $category = Category::findOrFail($id);
+        $modules = Module::where('category_id', $id)->get();
+        return view('frontend.modules', compact('category', 'modules'));
+    }
+    public function detailsModule($id)
+    {
+        $modules = Module::where('id', $id)->get();
+        return view('frontend.details-modules', compact('modules'));
     }
 }

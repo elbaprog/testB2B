@@ -11,7 +11,8 @@
 
                  <li>
                      <a href="{{url('/dashboard') }}" class="waves-effect">
-                         <i class="ri-dashboard-line"></i>
+                        
+                        <img src="{{ asset('backend/assets/images/dashboard.png') }}" alt="logo-sm-light">
                          {{-- <span class="badge rounded-pill bg-success float-end">3</span> --}}
                          <span>Dashboard</span>
                      </a>
@@ -20,7 +21,8 @@
                  <li class="menu-title">Pages</li>
                  <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
-                         <i class="ri-account-circle-line"></i>
+                         
+                        <img src="{{ asset('backend/assets/images/category.png') }}" alt="logo-sm-light">
                          <span>Category</span>
                      </a>
                      <ul class="sub-menu" aria-expanded="false">
@@ -31,7 +33,7 @@
 
                  <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
-                         <i class="ri-profile-line"></i>
+                     <img src="{{ asset('backend/assets/images/modules.png') }}" alt="logo-sm-light">
                          <span>Modules</span>
                      </a>
                      <ul class="sub-menu" aria-expanded="false">
