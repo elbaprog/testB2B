@@ -149,7 +149,7 @@ $modules = App\Models\Module::with('category')
                                                                 <i class="ri-checkbox-blank-circle-fill font-size-10 text-success align-middle me-2"></i>
                                                                 {{ $item['category']['category'] }}
                                                             @else
-                                                                <i class="ri-checkbox-blank-circle-fill font-size-10 text-info align-middle me-2"></i>
+                                                                <i style="color: #fcae1e" class="ri-checkbox-blank-circle-fill font-size-10 align-middle me-2"></i>
                                                                 {{ $item['category']['category'] }}
                                                             @endif
                                                         </div>
