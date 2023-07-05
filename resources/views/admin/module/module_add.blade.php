@@ -80,6 +80,7 @@
                                         <img id="showImage" class="rounded avatar-lg" src="{{ url('upload/no_image.jpg') }}"
                                             alt="Card image cap">
                                     </div>
+                            
                                 </div>
                                 <!-- end row -->
 
