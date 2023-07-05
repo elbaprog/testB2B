@@ -7,20 +7,20 @@
 		    <h1 class="page-heading single-col-max mx-auto">Documentation</h1>
 	    </div>
     </div><!--//page-header-->
-   <!-- resources/views/categorys.blade.php -->
-<div class="page-content">
+
+     <div class="page-content">
     <div class="container">
         <div class="docs-overview py-5">
             <div class="row justify-content-center">
-                @foreach($categorys as $category)
+            @foreach($modules as $module)
                     <div class="col-12 col-lg-6 py-3">
                         <div class="card shadow-sm">
                             <div class="card-body">
                                 <h5 class="card-title mb-3">
-                                    <img src="{{ asset($category->category_image) }}" style="width: 60px; height: 50px;">
-                                    <span class="card-title-text">{{ $category->category }}</span>
+                                    <img src="{{ asset($module->image) }}" style="width: 60px; height: 50px;">
+                                    <span class="card-title-text">{{ $module['title']}}</span>
                                 </h5>
-                                <a class="card-link-mask" href="{{ route('category', $category->id) }}"></a>
+                                <a class="card-link-mask" href="{{ route('details_modules', $module->id) }}"></a>
 
                             </div><!--//card-body-->
                         </div><!--//card-->
@@ -30,6 +30,4 @@
         </div><!--//docs-overview-->
     </div><!--//container-->
 </div><!--//page-content-->
-
-				   
 @endsection
