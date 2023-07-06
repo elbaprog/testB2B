@@ -8,8 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
+
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('backend/assets/images/porgtelx2.png') }}">
 
         <!-- Bootstrap Css -->
         <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -22,18 +23,18 @@
 
     </head>
 
-    <body class="auth-body-bg">
-        <div class="bg-overlay"></div>
-        <div class="wrapper-page">
+    <body>
+    <img class="bg-overlay" src="{{ asset('backend/assets/images/login.png') }}" >
+        <div class="wrapper-page" >
             <div class="container-fluid p-0">
-                <div class="card">
+                <div class="card" style="border-radius:50px;">
                     <div class="card-body">
 
                         <div class="text-center mt-4">
                             <div class="mb-3">
-                                <a href="index.html" class="auth-logo">
-                                    <img src="{{ asset('backend/assets/images/logo-dark.png') }}" height="30" class="logo-dark mx-auto" alt="">
-                                    <img src="{{ asset('backend/assets/images/logo-light.png') }}" height="30" class="logo-light mx-auto" alt="">
+                                <a href="" class="auth-logo">
+                                    <img src="{{ asset('backend/assets/images/PROG-LOGO.png') }}" width="250" class="logo-dark mx-auto" alt="">
+                                    <img src="{{ asset('backend/assets/images/PROG-LOGO.png') }}" width="250" class="logo-light mx-auto" alt="">
                                 </a>
                             </div>
                         </div>
@@ -46,15 +47,15 @@
  <form class="form-horizontal mt-3" method="POST" action="{{ route('login') }}">
             @csrf
 
-        <div class="form-group mb-3 row">
-            <div class="col-12">
-                <input class="form-control" id="username" name="username" type="text" required="" placeholder="Username">
+        <div class="form-group mb-3 row" >
+            <div class="col-12" >
+                <input class="form-control" id="username" name="username" type="text" required="" placeholder="Username"  style="border-radius:10px;">
             </div>
         </div>
 
         <div class="form-group mb-3 row">
             <div class="col-12">
-                <input class="form-control" id="password" name="password" type="password" required="" placeholder="Password">
+                <input class="form-control" id="password" name="password" type="password" required="" placeholder="Password" style="border-radius:10px;">
             </div>
         </div>
 
@@ -69,7 +70,7 @@
 
         <div class="form-group mb-3 text-center row mt-3 pt-1">
             <div class="col-12">
-                <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log In</button>
+                <button class="btn btn-info w-50 waves-effect" type="submit" style="background-color:#2A357A">Log In</button>
             </div>
         </div>
 
